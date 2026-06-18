@@ -2,6 +2,7 @@ import { ArrowLeft } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
+import Reveal from "../motion/Reveal";
 
 export default function HeroSection() {
   const t = useTranslations("Hero");
@@ -130,30 +131,39 @@ max-md:px-3 max-md:py-6
       </div>
       <div className="grid grid-cols-2 max-md:grid-cols-1 gap-6  w-full h-full pt-12 px-12 max-md:pt-28 items-center justify-between">
         <div className="content-col flex flex-col gap-6">
-          <h2 className="text-5xl/relaxed font-extrabold max-lg:text-4xl">
-            {t("title1")}
-            <br /> <span className="text-primary">{t("title2")}</span>
-          </h2>
-          <h3 className="text-2xl/normal max-lg:text-xl">{t("description")}</h3>
-          <h4>
-            <Link
-              className="px-6 py-4 flex w-fit rounded-xl bg-primary relative group overflow-hidden text-white"
-              href={"#contact"}
-            >
-              <div className="absolute h-full inset-0 w-0 top-0 right-0 group-hover:w-full bg-primary-dark transition-all duration-200" />
-              <span className="flex items-center gap-2 z-10">
-                {t("startNow")}{" "}
-                <ArrowLeft
-                  size={20}
-                  className="group-hover:animate-arrow-slide"
-                />
-              </span>
-            </Link>
-          </h4>
+          <Reveal>
+            <h2 className="text-5xl/relaxed font-extrabold max-lg:text-4xl">
+              {t("title1")}
+              <br /> <span className="text-primary">{t("title2")}</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.4}>
+            <h3 className="text-2xl/normal max-lg:text-xl">
+              {t("description")}
+            </h3>
+          </Reveal>
+          <Reveal delay={0.8}>
+            <h4>
+              <Link
+                className="px-6 py-4 flex w-fit rounded-xl bg-primary relative group overflow-hidden text-white"
+                href={"#contact"}
+              >
+                <div className="absolute h-full inset-0 w-0 top-0 right-0 group-hover:w-full bg-primary-dark transition-all duration-200" />
+                <span className="flex items-center gap-2 z-10">
+                  {t("startNow")}{" "}
+                  <ArrowLeft
+                    size={20}
+                    className="group-hover:animate-arrow-slide"
+                  />
+                </span>
+              </Link>
+            </h4>
+          </Reveal>
         </div>
-        <div className="image-col flex justify-center items-center h-96 max-md:h-62">
-          <div
-            className="rounded-full animate-spin-slow
+        <Reveal delay={0.6} direction="right">
+          <div className="image-col flex justify-center items-center h-96 max-md:h-62">
+            <div
+              className="rounded-full animate-spin-slow
 bg-linear-to-br
 from-rose-100
 via-red-300
@@ -163,18 +173,18 @@ to-primary
  origin-custom
  max-md:size-32
  bottom-1/6"
-          />
-          {/* w-full h-full */}
-          <Image
-            width={1000}
-            height={600}
-            quality={75}
-            src={"/assets/images/hero/hero.webp"}
-            alt="hero-ebdaa"
-            loading="eager"
-            className="w-auto  object-cover absolute bottom-0 h-96 max-md:h-72"
-          />
-        </div>
+            />
+            <Image
+              width={1000}
+              height={600}
+              quality={75}
+              src={"/assets/images/hero/hero.webp"}
+              alt="hero-ebdaa"
+              loading="eager"
+              className="w-auto object-cover absolute -bottom-20 h-96 max-md:h-72"
+            />
+          </div>
+        </Reveal>
       </div>
     </div>
   );
