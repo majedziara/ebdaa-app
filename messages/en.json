@@ -1,5 +1,12 @@
 {
   "Navbar": {
     "home": "Home"
+  },
+
+  "Hero": {
+    "title1": "Towards a Powerful Digital Presence",
+    "title2": "And Ideas That Make a Difference",
+    "description": "We provide integrated creative solutions in advertising, content management, and web development to help your brand reach, engage, and grow with confidence.",
+    "startNow": "Get Started"
   }
 }

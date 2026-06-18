@@ -9,7 +9,7 @@ export default function Navbar() {
     <>
       <NavbarScroll />
 
-      <div className="px-12 flex fixed w-screen backdrop-blur-xl navbar flex-col max-md:bg-background/80 max-md:border-b max-md:border-border max-md:py-1">
+      <div className="px-12 inset-x-0 box-border flex fixed w-full navbar flex-col z-50 max-md:bg-background/80 max-md:border-b max-md:border-border max-md:py-1">
         <div className="flex flex-row justify-between items-center">
           <Link href="#home" className="logo h-20">
             <Image

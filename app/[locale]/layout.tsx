@@ -44,7 +44,7 @@ export default async function RootLayout({
       dir={dir}
       className={`${rubik.variable} ${zain.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-screen overflow-x-hidden relative flex flex-col">
         <NextIntlClientProvider>
           <Navbar />
           {children}
