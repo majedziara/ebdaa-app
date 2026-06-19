@@ -1,11 +1,14 @@
-import { ArrowLeft } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "../motion/Reveal";
+import { getDirection } from "@/i18n/getDirection";
 
 export default function HeroSection() {
   const t = useTranslations("Hero");
+  const locale = useLocale();
+  const dir = getDirection(locale);
   return (
     <div
       className="w-screen
@@ -16,6 +19,7 @@ to-violet-100
 relative
 px-12 py-16
 max-md:px-3 max-md:py-6
+overflow-hidden
 "
       // from-white
       // via-rose-50
@@ -132,7 +136,9 @@ max-md:px-3 max-md:py-6
       <div className="grid grid-cols-2 max-md:grid-cols-1 gap-6  w-full h-full pt-12 px-12 max-md:pt-28 items-center justify-between">
         <div className="content-col flex flex-col gap-6">
           <Reveal>
-            <h2 className="text-5xl/relaxed font-extrabold max-lg:text-4xl">
+            <h2
+              className={`font-extrabold ${dir === "rtl" ? "text-5xl/relaxed max-lg:text-4xl/relaxed" : "text-5xl max-lg:text-4xl"}`}
+            >
               {t("title1")}
               <br /> <span className="text-primary">{t("title2")}</span>
             </h2>
@@ -151,10 +157,17 @@ max-md:px-3 max-md:py-6
                 <div className="absolute h-full inset-0 w-0 top-0 right-0 group-hover:w-full bg-primary-dark transition-all duration-200" />
                 <span className="flex items-center gap-2 z-10">
                   {t("startNow")}{" "}
-                  <ArrowLeft
-                    size={20}
-                    className="group-hover:animate-arrow-slide"
-                  />
+                  {dir === "rtl" ? (
+                    <ArrowLeft
+                      size={20}
+                      className="group-hover:animate-arrow-slide"
+                    />
+                  ) : (
+                    <ArrowRight
+                      size={20}
+                      className="group-hover:animate-arrow-slide"
+                    />
+                  )}
                 </span>
               </Link>
             </h4>
@@ -181,7 +194,7 @@ to-primary
               src={"/assets/images/hero/hero.webp"}
               alt="hero-ebdaa"
               loading="eager"
-              className="w-auto object-cover absolute -bottom-20 h-96 max-md:h-72"
+              className={`w-auto object-cover absolute h-96 max-md:h-72 ${dir === "ltr" ? "-bottom-20 max-sm:-bottom-12 lg:-bottom-24" : "-bottom-20 max-md:-bottom-8"}`}
             />
           </div>
         </Reveal>

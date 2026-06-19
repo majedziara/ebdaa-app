@@ -1,4 +1,5 @@
 import HeroSection from "@/components/home/HeroSection";
+import ShortServicesSection from "@/components/home/ShortServicesSection";
 
 export default function Home() {
   return (
@@ -6,6 +7,7 @@ export default function Home() {
       <main className="relative w-screen overflow-hidden box-border">
         {/* <h1>نصمم لكم تجربة متكاملة</h1> */}
         <HeroSection />
+        <ShortServicesSection />
       </main>
     </div>
   );

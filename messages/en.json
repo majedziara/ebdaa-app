@@ -8,5 +8,21 @@
     "title2": "And Ideas That Make a Difference",
     "description": "We provide integrated creative solutions in advertising, content management, and web development to help your brand reach, engage, and grow with confidence.",
     "startNow": "Get Started"
+  },
+  "ShortServices": {
+    "items": [
+      {
+        "title": "Branding & Design",
+        "description": "We create visual identities and professional designs that give your brand a distinctive and memorable presence."
+      },
+      {
+        "title": "Advertising & Media",
+        "description": "We deliver advertising and digital media solutions that strengthen your brand and expand its reach."
+      },
+      {
+        "title": "Digital Solutions",
+        "description": "We build websites and digital solutions that help businesses grow and deliver services professionally."
+      }
+    ]
   }
 }
