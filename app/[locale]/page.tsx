@@ -1,3 +1,4 @@
+import AboutSection from "@/components/home/AboutSection";
 import HeroSection from "@/components/home/HeroSection";
 import ShortServicesSection from "@/components/home/ShortServicesSection";
 
@@ -8,6 +9,7 @@ export default function Home() {
         {/* <h1>نصمم لكم تجربة متكاملة</h1> */}
         <HeroSection />
         <ShortServicesSection />
+        <AboutSection />
       </main>
     </div>
   );

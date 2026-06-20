@@ -12,6 +12,7 @@ export default function Reveal({
   direction = "up",
   scale = false,
   blur = false,
+  className,
 }: {
   children: React.ReactNode;
   duration?: number;
@@ -20,6 +21,7 @@ export default function Reveal({
   direction?: Direction;
   scale?: boolean;
   blur?: boolean;
+  className?: string;
 }) {
   const getInitial = () => {
     const base = { opacity: 0 };
@@ -52,6 +54,7 @@ export default function Reveal({
 
   return (
     <motion.div
+      className={className}
       initial={getInitial()}
       whileInView={getAnimate()}
       viewport={{ once: onlyOnce, amount: 0.3 }}

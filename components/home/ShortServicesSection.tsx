@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import Reveal from "../motion/Reveal";
 
 type Item = {
   title: string;
@@ -18,9 +19,12 @@ export default function ShortServicesSection() {
   return (
     <div className="flex items-stretch justify-center gap-6 py-12 px-24 -mt-24 max-md:mt-0 flex-wrap overflow-visible w-full relative z-10">
       {items.map((item: Item, index: number) => (
-        <div
-          key={index}
+        <Reveal
           className="p-6 max-lg:basis-[calc(50%-12px)] max-md:basis-full bg-white shadow-2xl flex flex-row flex-1 gap-3 rounded-2xl items-stretch relative overflow-hidden group cursor-default"
+          key={index}
+          direction={index % 2 === 0 ? "down" : "up"}
+          // onlyOnce={false}
+          delay={1 + index / 10}
         >
           <div className="absolute h-full bg-linear-to-b from-primary via-[#d43a40] to-[#742425] rounded-t-2xl left-0 right-0 -bottom-full group-hover:bottom-0 duration-500" />
           <Image
@@ -37,7 +41,7 @@ export default function ShortServicesSection() {
               {item.title}
             </span>
           </div>
-        </div>
+        </Reveal>
       ))}
     </div>
   );

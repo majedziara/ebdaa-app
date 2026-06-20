@@ -1,6 +1,7 @@
 {
   "Navbar": {
-    "home": "Home"
+    "home": "Home",
+    "about": "About us"
   },
 
   "Hero": {
@@ -24,5 +25,15 @@
         "description": "We build websites and digital solutions that help businesses grow and deliver services professionally."
       }
     ]
+  },
+  "aboutSection": {
+    "information": "About Us",
+    "about": "Who We Are",
+    "aboutTitle": "We help our clients build a presence that reflects their vision",
+    "aboutDescription": "Since 2003, Ebdaa has contributed to delivering advertising and branding projects for many companies and institutions. Today, we continue our journey with a vision that combines experience, creativity, and modern digital solutions.",
+    "vision": "Our Vision",
+    "visionDescription": "To become the first choice for businesses and institutions seeking a trusted partner that combines creativity, experience, and modern digital solutions.",
+    "mission": "Our Mission",
+    "missionDescription": "To provide integrated advertising and digital solutions that help our clients build a strong presence and achieve sustainable growth."
   }
 }

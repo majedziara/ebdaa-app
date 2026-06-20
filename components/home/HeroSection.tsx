@@ -11,6 +11,7 @@ export default function HeroSection() {
   const dir = getDirection(locale);
   return (
     <div
+      id="home"
       className="w-screen
     bg-linear-to-br
 from-rose-50
@@ -135,7 +136,7 @@ overflow-hidden
       </div>
       <div className="grid grid-cols-2 max-md:grid-cols-1 gap-6  w-full h-full pt-12 px-12 max-md:pt-28 items-center justify-between">
         <div className="content-col flex flex-col gap-6">
-          <Reveal>
+          <Reveal delay={0.5}>
             <h2
               className={`font-extrabold ${dir === "rtl" ? "text-5xl/relaxed max-lg:text-4xl/relaxed" : "text-5xl max-lg:text-4xl"}`}
             >
@@ -143,12 +144,12 @@ overflow-hidden
               <br /> <span className="text-primary">{t("title2")}</span>
             </h2>
           </Reveal>
-          <Reveal delay={0.4}>
+          <Reveal delay={1}>
             <h3 className="text-2xl/normal max-lg:text-xl">
               {t("description")}
             </h3>
           </Reveal>
-          <Reveal delay={0.8}>
+          <Reveal delay={1.5}>
             <h4>
               <Link
                 className="px-6 py-4 flex w-fit rounded-xl bg-primary relative group overflow-hidden text-white"
@@ -173,7 +174,7 @@ overflow-hidden
             </h4>
           </Reveal>
         </div>
-        <Reveal delay={0.6} direction="right">
+        <Reveal delay={0.8} direction="right">
           <div className="image-col flex justify-center items-center h-96 max-md:h-62">
             <div
               className="rounded-full animate-spin-slow
