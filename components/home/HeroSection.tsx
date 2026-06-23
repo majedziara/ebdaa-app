@@ -134,7 +134,7 @@ overflow-hidden
         <div className="absolute bottom-1/3 left-1/2 w-2 aspect-square rounded-full bg-primary/50 animate-float-large-soft-2" />
         <div className="absolute bottom-5 left-5 w-40 aspect-square rounded-full border border-primary/50 animate-float-organic" />
       </div>
-      <div className="grid grid-cols-2 max-md:grid-cols-1 gap-6  w-full h-full pt-12 px-12 max-md:pt-28 items-center justify-between">
+      <div className="grid grid-cols-2 max-md:grid-cols-1 gap-6  w-full h-full pt-12 md:px-12 px-4 max-md:pt-28 items-center justify-between">
         <div className="content-col flex flex-col gap-6">
           <Reveal delay={0.5}>
             <h2
