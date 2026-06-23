@@ -16,7 +16,7 @@ export default function AboutSection() {
       {/* 🔝 Top Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-20 w-full items-center">
         {/* 🖼️ Image */}
-        <Reveal delay={0.8} direction="up">
+        <Reveal delay={0.5} direction="up">
           <InteractiveImage
             src="/assets/images/about/about-2.webp"
             alt="about-2"
@@ -33,11 +33,11 @@ export default function AboutSection() {
 
         {/* ✨ Text */}
         <Reveal
-          delay={0.8}
+          delay={0.5}
           direction="down"
           className="flex flex-col items-start text-start gap-5"
         >
-          <div className="text-2xl text-secondary opacity-20 translate-y-2 absolute">
+          <div className="text-2xl text-secondary opacity-20 blur-[1px] translate-y-2 absolute">
             {t("information")}
           </div>
 
@@ -57,7 +57,7 @@ export default function AboutSection() {
           index > 0 ? (
             <Reveal
               key={index}
-              delay={0.8}
+              delay={0.6}
               direction={index === 1 ? "up" : "down"}
             >
               <div className="flex flex-col gap-4 text-start">
@@ -71,7 +71,7 @@ export default function AboutSection() {
         )}
 
         {/* 🖼️ Second Image */}
-        <Reveal delay={0.8} direction="up">
+        <Reveal delay={0.6} direction="up">
           <InteractiveImage
             src="/assets/images/about/about-1.webp"
             alt="about-2"

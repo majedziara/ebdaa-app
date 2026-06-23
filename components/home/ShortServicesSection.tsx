@@ -24,9 +24,9 @@ export default function ShortServicesSection() {
           key={index}
           direction={index % 2 === 0 ? "down" : "up"}
           // onlyOnce={false}
-          delay={1 + index / 10}
+          delay={0.5 + index / 10}
         >
-          <div className="absolute h-full bg-linear-to-b from-primary via-[#d43a40] to-[#742425] rounded-t-2xl left-0 right-0 -bottom-full group-hover:bottom-0 duration-500" />
+          <div className="absolute h-full bg-linear-to-b from-primary via-[#c6373d] to-[#5f1d1f] rounded-t-2xl left-0 right-0 -bottom-full group-hover:bottom-0 duration-500" />
           <Image
             src={imgs[index]}
             alt={item.title}
@@ -35,8 +35,12 @@ export default function ShortServicesSection() {
             className="w-1/4 z-20 object-contain"
           />
           <div className="flex-1 flex flex-col gap-4 justify-evenly">
-            <h4 className="text-lg font-medium">{item.title}</h4>
-            <p className="text-md text-mist-600">{item.description}</p>
+            <h4 className="group-hover:opacity-0 duration-200 delay-200 text-lg font-medium">
+              {item.title}
+            </h4>
+            <p className="group-hover:opacity-0 duration-200 delay-200 text-md text-mist-600">
+              {item.description}
+            </p>
             <span className="absolute opacity-0 group-hover:opacity-100 top-1/2 -translate-y-1/2 text-lg font-medium text-white delay-200 duration-300">
               {item.title}
             </span>
