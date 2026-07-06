@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 "use client";
-=======
->>>>>>> c052080081031f3234c53c10c20c32bbda3aebb1
 import {
   Carousel,
   CarouselContent,
@@ -10,21 +7,15 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { getDirection } from "@/i18n/getDirection";
-<<<<<<< HEAD
 import Autoplay from "embla-carousel-autoplay";
 import { useLocale } from "next-intl";
 import Image from "next/image";
 import { useRef } from "react";
-=======
-import { useLocale } from "next-intl";
-import Image from "next/image";
->>>>>>> c052080081031f3234c53c10c20c32bbda3aebb1
 
 export default function ClientsCarousel() {
   const locale = useLocale();
   const dir = getDirection(locale);
 
-<<<<<<< HEAD
   const plugin = useRef(
     Autoplay({
       delay: 2000, // كل ثانيتين
@@ -35,10 +26,6 @@ export default function ClientsCarousel() {
   return (
     <Carousel
       plugins={[plugin.current]}
-=======
-  return (
-    <Carousel
->>>>>>> c052080081031f3234c53c10c20c32bbda3aebb1
       dir={dir}
       opts={{
         direction: dir,

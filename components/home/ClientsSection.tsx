@@ -1,34 +1,9 @@
 import { useTranslations } from "next-intl";
-<<<<<<< HEAD
 import Reveal from "../motion/Reveal";
 import ClientsCarousel from "./sub_component/ClientsCarousel";
 
 export default function ClientsSection() {
   const t = useTranslations("clientsSection");
-=======
-import React from "react";
-import Reveal from "../motion/Reveal";
-import ClientsCarousel from "./sub_component/ClientsCarousel";
-import Autoplay from "embla-carousel-react";
-import { useInView } from "motion/react";
-
-export default function ClientsSection() {
-  const t = useTranslations("clientsSection");
-  const plugin = React.useRef(
-    Autoplay({
-      delay: 3000,
-      stopOnInteraction: false,
-      stopOnMouseEnter: true,
-    }),
-  );
-  const ref = React.useRef(null);
-  const isInView = useInView(ref);
-
-  React.useEffect(() => {
-    if (!isInView) plugin.current.stop();
-    else plugin.current.reset();
-  }, [isInView]);
->>>>>>> c052080081031f3234c53c10c20c32bbda3aebb1
 
   return (
     <div
