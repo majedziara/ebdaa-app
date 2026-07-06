@@ -103,5 +103,15 @@
         ]
       }
     ]
+  },
+  "clientsSection": {
+    "clients": "Our Clients",
+    "clientsTitle": "Trusted by Leading Organizations",
+    "clientsDescription": "Over the years, we have proudly partnered with companies and institutions to deliver creative and advertising solutions that make a lasting impact."
+  },
+  "contactSection": {
+    "contact": "Contact Us",
+    "contactTitle": "Let's Talk About Your Next Project",
+    "contactDescription": "Whether you have a question, a project idea, or you're looking for a trusted partner to grow your business, we'd be happy to hear from you and answer all your inquiries."
   }
 }
