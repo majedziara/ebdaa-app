@@ -28,7 +28,7 @@ export default function LanguageButton() {
           onClick={(e) => {
             if (lang.locale === locale) e.preventDefault();
           }}
-          className={`flex gap-2 px-3 py-2 rounded-lg ${locale !== lang.locale ? "cursor-pointer hover:bg-white" : "cursor-auto"}`}
+          className={`flex gap-2 px-3 py-2 rounded-lg duration-500 ${locale !== lang.locale ? "cursor-pointer hover:bg-white" : "cursor-auto"}`}
         >
           <Image
             width={512}

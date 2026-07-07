@@ -17,10 +17,10 @@ export default function ShortServicesSection() {
   const t = useTranslations("ShortServices");
   const items = t.raw("items");
   return (
-    <div className="flex items-stretch justify-center gap-6 py-12 md:px-24 px-4 -mt-24 max-md:mt-0 flex-wrap overflow-visible w-full relative z-10">
+    <div className="flex items-stretch justify-center gap-6 py-12 md:px-24 px-4 -mt-24 max-md:mt-0 flex-wrap overflow-visible w-full relative z-10 pointer-events-none">
       {items.map((item: Item, index: number) => (
         <Reveal
-          className="p-6 max-lg:basis-[calc(50%-12px)] max-md:basis-full bg-white shadow-2xl flex flex-row flex-1 gap-3 rounded-2xl items-stretch relative overflow-hidden group cursor-default"
+          className="p-6 max-lg:basis-[calc(50%-12px)] max-md:basis-full bg-white shadow-2xl flex flex-row flex-1 gap-3 rounded-2xl items-stretch relative overflow-hidden group cursor-default pointer-events-auto"
           key={index}
           direction={index % 2 === 0 ? "down" : "up"}
           // onlyOnce={false}

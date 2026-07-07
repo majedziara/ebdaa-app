@@ -1,63 +1,67 @@
 {
   "Navbar": {
     "home": "Home",
-    "about": "About us",
+    "about": "About Us",
     "services": "Our Services",
     "clients": "Our Clients",
     "contact": "Contact Us"
   },
 
   "Hero": {
-    "title1": "Towards a Powerful Digital Presence",
-    "title2": "And Ideas That Make a Difference",
-    "description": "We provide integrated creative solutions in advertising, content management, and web development to help your brand reach, engage, and grow with confidence.",
+    "title1": "Building a Strong Digital Presence",
+    "title2": "Through Ideas That Make an Impact",
+    "description": "We provide integrated solutions in advertising, branding, content management, and digital solutions to help your business reach the right audience, stand out, and grow with confidence.",
     "startNow": "Get Started"
   },
+
   "ShortServices": {
     "items": [
       {
         "title": "Branding & Design",
-        "description": "We create visual identities and professional designs that give your brand a distinctive and memorable presence."
+        "description": "We create professional visual identities and designs that give your brand a distinctive and lasting presence."
       },
       {
         "title": "Advertising & Media",
-        "description": "We deliver advertising and digital media solutions that strengthen your brand and expand its reach."
+        "description": "We deliver creative advertising and media solutions that strengthen your brand and expand its reach."
       },
       {
         "title": "Digital Solutions",
-        "description": "We build websites and digital solutions that help businesses grow and deliver services professionally."
+        "description": "We build websites and digital solutions that help businesses grow and deliver their services professionally."
       }
     ]
   },
+
   "aboutSection": {
     "information": "About Us",
     "about": "Who We Are",
-    "aboutTitle": "We help our clients build a presence that reflects their vision",
-    "aboutDescription": "Since 2003, Ebdaa has contributed to delivering advertising and branding projects for many companies and institutions. Today, we continue our journey with a vision that combines experience, creativity, and modern digital solutions.",
+    "aboutTitle": "Building Brands That Leave a Lasting Impact",
+    "aboutDescription": "Since 2003, Ebdaa has delivered advertising and branding solutions for a wide range of companies and institutions. Today, we continue our journey by combining years of experience with creativity and modern digital solutions to create real value for our clients.",
     "vision": "Our Vision",
-    "visionDescription": "To become the first choice for businesses and institutions seeking a trusted partner that combines creativity, experience, and modern digital solutions.",
+    "visionDescription": "To become the trusted partner of choice for organizations seeking creative and digital solutions that create lasting impact.",
     "mission": "Our Mission",
-    "missionDescription": "To provide integrated advertising and digital solutions that help our clients build a strong presence and achieve sustainable growth."
+    "missionDescription": "To deliver integrated advertising, branding, and digital solutions that help our clients build a strong presence and achieve sustainable growth."
   },
+
   "servicesSection": {
     "services": "Our Services",
-    "servicesTitle": "Creative and Digital Solutions for Your Business",
-    "servicesDescription": "From concept to execution, we provide integrated services that help you build a strong presence and achieve sustainable growth.",
+    "servicesTitle": "Creative & Digital Solutions for Your Business",
+    "servicesDescription": "From strategy to execution, we provide integrated services that help your business build a strong presence and achieve measurable results.",
+
     "items": [
       {
-        "title": "Branding & Design",
         "icon": "Palette",
-        "description": "We create visual identities and professional designs that give your brand a distinctive presence.",
+        "title": "Branding & Design",
+        "description": "We create professional visual identities and designs that reflect your brand and strengthen its presence.",
         "features": [
-          "Visual Identity Design",
+          "Visual Identity",
           "Logos & Company Profiles",
           "Print & Marketing Materials"
         ]
       },
       {
-        "title": "Advertising & Media",
         "icon": "Megaphone",
-        "description": "We provide integrated advertising solutions that help your message reach the right audience.",
+        "title": "Advertising & Media",
+        "description": "We provide integrated advertising solutions that communicate your message with maximum impact.",
         "features": [
           "Billboards & Outdoor Advertising",
           "Advertising Campaigns",
@@ -65,39 +69,39 @@
         ]
       },
       {
-        "title": "Content & Social Media",
         "icon": "Share2",
-        "description": "We build a strong digital presence through content planning and platform management.",
+        "title": "Content Management",
+        "description": "We build a powerful digital presence through strategic content planning and social media management.",
         "features": [
-          "Account Management",
+          "Platform Management",
           "Content Writing",
-          "Social Media Designs"
+          "Social Media Design"
         ]
       },
       {
-        "title": "Video Production",
         "icon": "Video",
-        "description": "We produce engaging visual content that showcases your services professionally.",
+        "title": "Video Production",
+        "description": "We produce engaging visual content that showcases your business in a professional and compelling way.",
         "features": [
           "Video Production",
-          "Editing & Effects",
-          "Reels & Short Content"
+          "Editing & Motion Effects",
+          "Reels & Short Videos"
         ]
       },
       {
-        "title": "Web & Digital Solutions",
         "icon": "Code2",
-        "description": "We design and develop digital solutions that help businesses grow efficiently.",
+        "title": "Digital Solutions",
+        "description": "We design and develop websites and digital systems that help businesses operate and grow efficiently.",
         "features": [
           "Corporate Websites",
           "E-Commerce Stores",
-          "Custom Systems & Solutions"
+          "Custom Digital Systems"
         ]
       },
       {
-        "title": "Digital Marketing",
         "icon": "TrendingUp",
-        "description": "We help brands strengthen their presence and connect with their target audience.",
+        "title": "Digital Marketing",
+        "description": "We help your brand reach the right audience and strengthen its digital presence through effective marketing strategies.",
         "features": [
           "Marketing Campaigns",
           "Digital Presence Optimization",
@@ -106,40 +110,58 @@
       }
     ]
   },
+
   "clientsSection": {
     "clients": "Our Clients",
     "clientsTitle": "Trusted by Leading Organizations",
-    "clientsDescription": "Over the years, we have proudly partnered with companies and institutions to deliver creative and advertising solutions that make a lasting impact."
+    "clientsDescription": "For more than two decades, we have proudly partnered with leading companies and institutions to deliver advertising and creative solutions that helped strengthen their brands and create lasting impact."
   },
+
   "contactSection": {
     "contact": "Contact Us",
     "contactTitle": "Let's Talk About Your Next Project",
-    "contactDescription": "Whether you have a question, a project idea, or you're looking for a trusted partner to grow your business, we'd be happy to hear from you and answer all your inquiries.",
+    "contactDescription": "Whether you have a question, a project idea, or you're looking for a trusted creative partner, we'd love to hear from you and discuss how we can help.",
+
     "name": "Your Name",
-    "email": "Your Email Address",
-    "phoneNumber": "Your Phone Number",
+    "email": "Email Address",
+    "phoneNumber": "Phone Number",
     "subject": "Subject",
     "message": "Write your message...",
     "sendBtn": "Send Message",
-    "nameRequired": "Name is required",
-    "emailRequired": "A valid email is required",
-    "phoneNumberRequired": "Phone number is required",
-    "subjectRequired": "Subject is required",
-    "messageToShort": "Message is too short",
-    "missingFiled": "Missing fields",
-    "somethingWentWrong": "Something went wrong",
-    "success": "Your message has been sent successfully",
-    "error": "Failed to send, please try again",
-    "missingFields": "Missing fields.",
+
+    "nameRequired": "Name is required.",
+    "emailRequired": "Please enter a valid email address.",
+    "phoneNumberRequired": "Phone number is required.",
+    "subjectRequired": "Subject is required.",
+    "messageToShort": "Your message is too short.",
+
+    "success": "Your message has been sent successfully.",
+    "error": "Failed to send your message. Please try again.",
+    "missingFields": "Please fill in all required fields.",
     "loading": "Sending your message..."
   },
+
   "contactInfoSection": {
     "contactUs": "Call Us",
     "emailAddress": "Email Address",
     "visitUs": "Visit Us"
   },
+
   "footer": {
-    "title": "Turning Your Ideas into Creative Digital Solutions That Make an Impact.",
-    "newsletter": "Subscribe to Our Newsletter"
+    "title": "Turning Your Ideas into Creative & Digital Solutions That Make an Impact.",
+    "newsletter": "Subscribe to Our Newsletter",
+    "company": "Company",
+
+    "emailPlaceholder": "Enter your email address",
+    "subscribe": "Subscribe",
+
+    "emailRequired": "Please enter a valid email address.",
+    "missingFields": "Please fill in all required fields.",
+    "alreadySubscribed": "You are already subscribed to our newsletter.",
+    "success": "Subscription completed successfully.",
+    "error": "Something went wrong. Please try again.",
+    "loading": "Subscribing...",
+
+    "copyright": "© 2003–{year} Ebdaa. All Rights Reserved."
   }
 }
