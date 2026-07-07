@@ -20,6 +20,7 @@ export default function ClientsCarousel() {
     Autoplay({
       delay: 2000, // كل ثانيتين
       stopOnInteraction: false, // يكمل بعد السحب
+      stopOnMouseEnter: true, // يتوقف عند مرور الماوس
     }),
   );
 
@@ -52,8 +53,8 @@ export default function ClientsCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className="left-2 md:-left-12" />
+      <CarouselNext className="right-2 md:-right-12" />
     </Carousel>
   );
 }

@@ -8,7 +8,7 @@ export default function Reveal({
   children,
   duration = 0.8,
   delay = 0,
-  onlyOnce = true,
+  onlyOnce = false,
   direction = "up",
   scale = false,
   blur = false,

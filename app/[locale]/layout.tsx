@@ -6,6 +6,7 @@ import { getDirection } from "@/i18n/getDirection";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import Navbar from "@/components/navbar/Navbar";
+import { Toaster } from "sonner";
 
 export const rubik = Rubik({
   subsets: ["arabic", "latin"],
@@ -46,6 +47,7 @@ export default async function RootLayout({
     >
       <body className="min-h-screen overflow-x-hidden relative flex flex-col">
         <NextIntlClientProvider>
+          <Toaster richColors position="top-right" />
           <Navbar />
           {children}
         </NextIntlClientProvider>

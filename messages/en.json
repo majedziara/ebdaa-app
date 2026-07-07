@@ -2,7 +2,9 @@
   "Navbar": {
     "home": "Home",
     "about": "About us",
-    "services": "Our Services"
+    "services": "Our Services",
+    "clients": "Our Clients",
+    "contact": "Contact Us"
   },
 
   "Hero": {
@@ -112,6 +114,28 @@
   "contactSection": {
     "contact": "Contact Us",
     "contactTitle": "Let's Talk About Your Next Project",
-    "contactDescription": "Whether you have a question, a project idea, or you're looking for a trusted partner to grow your business, we'd be happy to hear from you and answer all your inquiries."
+    "contactDescription": "Whether you have a question, a project idea, or you're looking for a trusted partner to grow your business, we'd be happy to hear from you and answer all your inquiries.",
+    "name": "Your Name",
+    "email": "Your Email Address",
+    "phoneNumber": "Your Phone Number",
+    "subject": "Subject",
+    "message": "Write your message...",
+    "sendBtn": "Send Message",
+    "nameRequired": "Name is required",
+    "emailRequired": "A valid email is required",
+    "phoneNumberRequired": "Phone number is required",
+    "subjectRequired": "Subject is required",
+    "messageToShort": "Message is too short",
+    "missingFiled": "Missing fields",
+    "somethingWentWrong": "Something went wrong",
+    "success": "Your message has been sent successfully",
+    "error": "Failed to send, please try again",
+    "missingFields": "Missing fields.",
+    "loading": "Sending your message..."
+  },
+  "contactInfoSection": {
+    "contactUs": "Call Us",
+    "emailAddress": "Email Address",
+    "visitUs": "Visit Us"
   }
 }
