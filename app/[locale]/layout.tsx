@@ -7,6 +7,9 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import Navbar from "@/components/navbar/Navbar";
 import { Toaster } from "sonner";
+import FooterSection from "@/components/FooterSection";
+import ScrollButton from "@/components/ScrollButton";
+import LanguageButton from "@/components/LanguageButton";
 
 export const rubik = Rubik({
   subsets: ["arabic", "latin"],
@@ -50,6 +53,9 @@ export default async function RootLayout({
           <Toaster richColors position="top-right" />
           <Navbar />
           {children}
+          <FooterSection />
+          <ScrollButton />
+          <LanguageButton />
         </NextIntlClientProvider>
       </body>
     </html>

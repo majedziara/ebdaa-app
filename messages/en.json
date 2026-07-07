@@ -137,5 +137,9 @@
     "contactUs": "Call Us",
     "emailAddress": "Email Address",
     "visitUs": "Visit Us"
+  },
+  "footer": {
+    "title": "Turning Your Ideas into Creative Digital Solutions That Make an Impact.",
+    "newsletter": "Subscribe to Our Newsletter"
   }
 }
