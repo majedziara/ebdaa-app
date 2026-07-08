@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Rubik, Zain } from "next/font/google";
 import "../globals.css";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
@@ -10,7 +9,8 @@ import { Toaster } from "sonner";
 import FooterSection from "@/components/FooterSection";
 import ScrollButton from "@/components/ScrollButton";
 import LanguageButton from "@/components/LanguageButton";
-import { getLocale } from "next-intl/server";
+import { getMetadata } from "@/lib/metadata";
+import StructuredData from "@/components/seo/StructuredData";
 
 export const rubik = Rubik({
   subsets: ["arabic", "latin"],
@@ -23,20 +23,14 @@ export const zain = Zain({
   variable: "--font-zain",
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getLocale();
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
 
-  const isArabic = locale === "ar";
-
-  return {
-    title: isArabic
-      ? "إبداع | الدعاية والإعلان والحلول الرقمية"
-      : "Ebdaa | Advertising, Branding & Digital Solutions",
-
-    description: isArabic
-      ? "إبداع شركة متخصصة في الدعاية والإعلان والهوية البصرية وإدارة المحتوى والتسويق الرقمي وتطوير المواقع الإلكترونية، نقدم حلولًا إبداعية تساعد الشركات على بناء حضور قوي وتحقيق نمو مستدام."
-      : "Since 2003, Ebdaa has been delivering advertising, branding, content creation, digital marketing, and web development solutions that help businesses build strong brands and achieve sustainable growth.",
-  };
+  return getMetadata(locale);
 }
 
 export default async function RootLayout({
@@ -62,6 +56,7 @@ export default async function RootLayout({
       className={`${rubik.variable} ${zain.variable} h-full antialiased`}
     >
       <body className="min-h-screen overflow-x-hidden relative flex flex-col">
+        <StructuredData />
         <NextIntlClientProvider>
           <Toaster richColors position="top-right" />
           <Navbar />
