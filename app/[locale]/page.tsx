@@ -7,7 +7,6 @@ import ServicesSection from "@/components/home/ServicesSection";
 import ShortServicesSection from "@/components/home/ShortServicesSection";
 
 export default async function Home() {
-  await new Promise((resolve) => setTimeout(resolve, 5000));
   return (
     <div>
       <main className="relative w-screen box-border">
