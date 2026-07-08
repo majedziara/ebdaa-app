@@ -17,11 +17,11 @@ export default function FooterSection() {
   return (
     <div className="text-white/85 py-12 px-4 md:py-12 md:px-24 w-full bg-[#1e1e1e] overflow-hidden relative">
       <div className="shapes pointer-events-none">
-        <div className="absolute right-3 top-3 opacity-10">
+        <div className="absolute rtl:right-3 ltr:left-3 top-3 opacity-10">
           <Code2 size={120} className="animate-[spin_20s_linear_infinite]" />
         </div>
 
-        <div className="absolute left-10 bottom-30 opacity-10">
+        <div className="absolute rtl:left-10 ltr:right-10 bottom-30 opacity-10">
           <Sparkles size={100} className="animate-pulse" />
         </div>
       </div>
