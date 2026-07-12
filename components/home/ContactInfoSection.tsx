@@ -8,8 +8,8 @@ export default function ContactInfoSection() {
   const contacts = [
     {
       title: t("contactUs"),
-      value: "+972595634627",
-      href: "https://wa.me/+972595634627",
+      value: "+972593199998",
+      href: "https://wa.me/+972593199998",
     },
     {
       title: t("emailAddress"),

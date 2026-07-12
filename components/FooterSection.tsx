@@ -8,9 +8,9 @@ import { Code2, Sparkles } from "lucide-react";
 
 export default function FooterSection() {
   const socialAccounts = [
-    { icon: FaFacebook, href: "https://facebook.com" },
-    { icon: FaInstagram, href: "https://instagram.com" },
-    { icon: FaWhatsapp, href: "https://wa.me/+972595634627" },
+    { icon: FaFacebook, href: "https://www.facebook.com/ebda4Adv/" },
+    { icon: FaInstagram, href: "https://www.instagram.com/ebda4adv/" },
+    { icon: FaWhatsapp, href: "https://wa.me/+972593199998" },
   ];
   const t = useTranslations("footer");
   const navT = useTranslations("Navbar");
