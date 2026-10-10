@@ -30,14 +30,15 @@ export default function ShortServicesSection() {
           <Image
             src={imgs[index]}
             alt={item.title}
+            sizes="(max-width: 768px) 25vw, 8vw"
             width={400}
             height={400}
             className="w-1/4 z-20 object-contain"
           />
           <div className="flex-1 flex flex-col gap-4 justify-evenly">
-            <h4 className="group-hover:opacity-0 group-active:opacity-0 duration-200 delay-200 text-lg font-medium">
+            <h2 style={{ fontFamily: "var(--font-rubik)" }} className="group-hover:opacity-0 group-active:opacity-0 duration-200 delay-200 text-lg font-medium">
               {item.title}
-            </h4>
+            </h2>
             <p className="group-hover:opacity-0 group-active:opacity-0 duration-200 delay-200 text-md text-mist-600">
               {item.description}
             </p>

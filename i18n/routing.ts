@@ -6,4 +6,7 @@ export const routing = defineRouting({
 
   // Used when no locale matches
   defaultLocale: "ar",
+  // Metadata and sitemap provide alternates on the canonical public origin.
+  // Avoid a second set derived from localhost or a preview deployment's host.
+  alternateLinks: false,
 });

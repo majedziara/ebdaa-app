@@ -7,12 +7,12 @@ export function getMetadata(locale: string): Metadata {
   const isArabic = locale === "ar";
 
   const title = isArabic
-    ? "إبداع | الدعاية والإعلان والحلول الرقمية"
-    : "Ebdaa | Advertising, Branding & Digital Solutions";
+    ? "إبداع | الدعاية والإعلان والتسويق الرقمي في غزة"
+    : "Ebdaa | Advertising & Digital Marketing in Gaza";
 
   const description = isArabic
-    ? "إبداع شركة متخصصة في الدعاية والإعلان والهوية البصرية وإدارة المحتوى والتسويق الرقمي وتطوير المواقع الإلكترونية."
-    : "Ebdaa is a creative agency specializing in advertising, branding, digital marketing, content creation, and web development since 2003.";
+    ? "إبداع في غزة، فلسطين: خبرة منذ 2003 في الدعاية والإعلان، تصميم الهوية البصرية، التسويق الرقمي، إدارة المحتوى وتطوير المواقع. تواصل معنا لبناء حضور علامتك."
+    : "Ebdaa in Gaza, Palestine: advertising, branding, digital marketing, content creation and web development since 2003. Build your brand with our creative team.";
 
   return {
     metadataBase: new URL(SITE_URL),
@@ -30,6 +30,9 @@ export function getMetadata(locale: string): Metadata {
           "تصميم",
           "تطوير مواقع",
           "التسويق الرقمي",
+          "إدارة مواقع التواصل الاجتماعي",
+          "شركة دعاية وإعلان غزة",
+          "فلسطين",
         ]
       : [
           "Ebdaa",
@@ -39,6 +42,9 @@ export function getMetadata(locale: string): Metadata {
           "Graphic Design",
           "Web Development",
           "Digital Marketing",
+          "Social Media Management",
+          "Advertising Agency Gaza",
+          "Palestine",
         ],
 
     authors: [
@@ -54,6 +60,8 @@ export function getMetadata(locale: string): Metadata {
     applicationName: "Ebdaa",
 
     category: "Business",
+    manifest: "/manifest.webmanifest",
+    verification: { google: siteConfig.googleVerification },
 
     alternates: {
       canonical: locale === "ar" ? "/ar" : "/en",
@@ -61,6 +69,7 @@ export function getMetadata(locale: string): Metadata {
       languages: {
         ar: `${SITE_URL}/ar`,
         en: `${SITE_URL}/en`,
+        "x-default": `${SITE_URL}/ar`,
       },
     },
 
@@ -72,15 +81,17 @@ export function getMetadata(locale: string): Metadata {
       url: `${SITE_URL}/${locale}`,
 
       locale: isArabic ? "ar_PS" : "en_US",
+      alternateLocale: isArabic ? ["en_US"] : ["ar_PS"],
 
       type: "website",
 
       images: [
         {
-          url: "/logo.svg",
+          url: `/og-image-${locale}.png`,
           width: 1200,
           height: 630,
-          alt: "Ebdaa",
+          alt: title,
+          type: "image/png",
         },
       ],
     },
@@ -92,7 +103,7 @@ export function getMetadata(locale: string): Metadata {
 
       description,
 
-      images: ["/logo.svg"],
+      images: [{ url: `/og-image-${locale}.png`, alt: title }],
     },
 
     icons: {
@@ -100,7 +111,7 @@ export function getMetadata(locale: string): Metadata {
 
       shortcut: "/favicon.ico",
 
-      apple: "/logo.svg",
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
     },
 
     robots: {

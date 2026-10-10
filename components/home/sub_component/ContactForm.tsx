@@ -1,8 +1,6 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod/mini";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -25,25 +23,37 @@ export default function ContactForm() {
 
   // 🧠 schema inside component to access i18n
   const schema = z.object({
-    name: z.string().min(2, t("nameRequired")),
-    email: z.string().email(t("emailRequired")),
-    phoneNumber: z.string().min(8, t("phoneNumberRequired")),
-    subject: z.string().min(2, t("subjectRequired")),
-    message: z.string().min(10, t("messageToShort")),
+    name: z.string().check(z.minLength(2, t("nameRequired"))),
+    email: z.email(t("emailRequired")),
+    phoneNumber: z.string().check(z.minLength(8, t("phoneNumberRequired"))),
+    subject: z.string().check(z.minLength(2, t("subjectRequired"))),
+    message: z.string().check(z.minLength(10, t("messageToShort"))),
   });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<FormData>({
-    resolver: zodResolver(schema),
-  });
+  const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const onSubmit = async (data: FormData): Promise<void> => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
+    event.preventDefault();
+    if (isLoading) return;
+    const form = event.currentTarget;
+    const result = schema.safeParse(Object.fromEntries(new globalThis.FormData(form)));
+    if (!result.success) {
+      const fieldErrors: Partial<Record<keyof FormData, string>> = {};
+      for (const issue of result.error.issues) {
+        const field = issue.path[0] as keyof FormData;
+        fieldErrors[field] ??= issue.message;
+      }
+      setErrors(fieldErrors);
+      const firstField = result.error.issues[0]?.path[0];
+      if (typeof firstField === "string") {
+        (form.elements.namedItem(firstField) as HTMLElement | null)?.focus();
+      }
+      return;
+    }
+    setErrors({});
+    const data = result.data;
     setIsLoading(true);
 
     try {
@@ -61,7 +71,7 @@ export default function ContactForm() {
       }
 
       toast.success(t("success"));
-      reset();
+      form.reset();
     } catch {
       toast.error(t("error"));
     } finally {
@@ -70,47 +80,60 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+    <form noValidate aria-busy={isLoading} onSubmit={onSubmit} className="space-y-6">
       {/* Row 1 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Field
+          id="contact-name"
+          autoComplete="name"
           placeholder={t("name")}
-          error={errors.name?.message}
-          {...register("name")}
+          error={errors.name}
+          name="name"
         />
 
         <Field
+          id="contact-email"
+          type="email"
+          autoComplete="email"
           placeholder={t("email")}
-          error={errors.email?.message}
-          {...register("email")}
+          error={errors.email}
+          name="email"
         />
       </div>
 
       {/* Row 2 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Field
+          id="contact-phone"
+          type="tel"
+          autoComplete="tel"
           placeholder={t("phoneNumber")}
-          error={errors.phoneNumber?.message}
-          {...register("phoneNumber")}
+          error={errors.phoneNumber}
+          name="phoneNumber"
         />
 
         <Field
+          id="contact-subject"
           placeholder={t("subject")}
-          error={errors.subject?.message}
-          {...register("subject")}
+          error={errors.subject}
+          name="subject"
         />
       </div>
 
       {/* Message */}
       <div>
+        <label htmlFor="contact-message" className="sr-only">{t("message")}</label>
         <Textarea
+          id="contact-message"
+          aria-invalid={!!errors.message}
+          aria-describedby={errors.message ? "contact-message-error" : undefined}
           placeholder={t("message")}
           className="min-h-37.5 resize-none"
-          {...register("message")}
+          name="message"
         />
 
         {errors.message && (
-          <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
+          <p id="contact-message-error" role="alert" className="text-red-600 text-sm mt-1">{errors.message}</p>
         )}
       </div>
 
@@ -133,15 +156,18 @@ type FieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
 function Field({ error, ...props }: FieldProps) {
   return (
     <div>
+      <label htmlFor={props.id} className="sr-only">{props.placeholder}</label>
       <Input
         {...props}
+        aria-invalid={!!error}
+        aria-describedby={error ? `${props.id}-error` : undefined}
         className="
           transition
           focus:ring-2 focus:ring-primary/20
         "
       />
 
-      {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+      {error && <p id={`${props.id}-error`} role="alert" className="text-red-600 text-sm mt-1">{error}</p>}
     </div>
   );
 }

@@ -36,14 +36,14 @@ export default function ContactInfoSection() {
                 rtl:-right-4
                 ltr:-left-4"
           />
-          <h5 className="font-semibold text-lg z-20">{contact.title}</h5>
-          <h6 className="text-sm hover:text-primary-dark duration-500 cursor-pointer">
+          <p className="font-semibold text-lg z-20">{contact.title}</p>
+          <p className="text-sm hover:text-primary-dark duration-500 cursor-pointer">
             {contact.href == "" ? (
               contact.value
             ) : (
               <Link href={contact.href}>{contact.value}</Link>
             )}
-          </h6>
+          </p>
         </div>
       ))}
     </Reveal>

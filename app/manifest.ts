@@ -9,7 +9,7 @@ export default function manifest(): MetadataRoute.Manifest {
     description:
       "Advertising, Branding, Digital Marketing and Web Development.",
 
-    start_url: "/",
+    start_url: "/ar",
 
     display: "standalone",
 
@@ -17,23 +17,24 @@ export default function manifest(): MetadataRoute.Manifest {
 
     theme_color: "#BE3A3F",
 
-    lang: "en",
+    lang: "ar",
+    dir: "rtl",
 
     icons: [
       {
-        src: "/logo.svg",
+        src: "/icon-192.png",
 
         sizes: "192x192",
 
-        type: "image/svg+xml",
+        type: "image/png",
       },
 
       {
-        src: "/logo.svg",
+        src: "/icon-512.png",
 
         sizes: "512x512",
 
-        type: "image/svg+xml",
+        type: "image/png",
       },
     ],
   };

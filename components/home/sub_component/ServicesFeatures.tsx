@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { m, useScroll, useTransform } from "motion/react";
 import { useLocale, useTranslations } from "next-intl";
 import { Star, TriangleRight } from "lucide-react";
 import {
@@ -70,7 +70,7 @@ export default function ServicesFeatures() {
   return (
     <div ref={containerRef} className="relative h-[350vh] w-full">
       <div className="sticky top-10 h-screen overflow-hidden flex items-center">
-        <motion.div
+        <m.div
           ref={trackRef}
           style={{ x }}
           dir="ltr"
@@ -128,9 +128,7 @@ export default function ServicesFeatures() {
                 />
 
                 {/* number */}
-                <div className="absolute top-8 right-10 text-8xl font-black text-white/5">
-                  0{dir === "rtl" ? items.length - index : index + 1}
-                </div>
+                <div aria-hidden="true" data-decoration={`0${dir === "rtl" ? items.length - index : index + 1}`} className="text-decoration absolute top-8 right-10 text-8xl font-black text-white/5" />
 
                 {/* icon */}
                 <div className="p-5 duration-500 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 group-hover:bg-white group-active:bg-white z-20">
@@ -143,7 +141,7 @@ export default function ServicesFeatures() {
                 </h3>
 
                 {/* description */}
-                <h4 className="text-lg z-20 text-center">{item.description}</h4>
+                <p className="text-lg z-20 text-center">{item.description}</p>
 
                 <hr className="w-full duration-500 group-hover:border-primary group-active:border-primary" />
 
@@ -170,7 +168,7 @@ export default function ServicesFeatures() {
               </div>
             );
           })}
-        </motion.div>
+        </m.div>
       </div>
     </div>
   );
