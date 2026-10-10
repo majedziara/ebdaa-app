@@ -4,6 +4,54 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Keyboard-only helpers preserve the existing visual design. */
+.skip-link {
+  position: fixed;
+  inset-inline-start: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: white;
+  color: #412929;
+}
+.skip-link:focus { transform: translateY(0); }
+.text-decoration::before { content: attr(data-decoration); }
+
+/* Preserve Reveal's movement, easing, durations and 30% visibility threshold.
+   Hero text can animate as soon as its HTML appears, before React hydrates. */
+.reveal {
+  opacity: 0;
+  transform: translate(var(--reveal-x), var(--reveal-y)) scale(var(--reveal-scale));
+  transition-property: opacity, transform, filter;
+  transition-duration: var(--reveal-duration);
+  transition-delay: var(--reveal-delay);
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-blur { filter: blur(8px); }
+.reveal[data-visible="true"] {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+.reveal[data-startup="true"][data-visible="true"] {
+  animation: reveal-enter var(--reveal-duration) cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay) both;
+}
+.reveal-blur[data-visible="true"] { filter: blur(0); }
+.reveal-blur[data-startup="true"][data-visible="true"] { animation-name: reveal-blur-enter; }
+@keyframes reveal-enter {
+  from { opacity: 0; transform: translate(var(--reveal-x), var(--reveal-y)) scale(var(--reveal-scale)); }
+  to { opacity: 1; transform: translate(0, 0) scale(1); }
+}
+@keyframes reveal-blur-enter {
+  from { opacity: 0; filter: blur(8px); transform: translate(var(--reveal-x), var(--reveal-y)) scale(var(--reveal-scale)); }
+  to { opacity: 1; filter: blur(0); transform: translate(0, 0) scale(1); }
+}
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

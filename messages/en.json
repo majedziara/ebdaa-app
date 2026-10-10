@@ -163,5 +163,17 @@
     "loading": "Subscribing...",
 
     "copyright": "© 2003–{year} Ebdaa. All Rights Reserved."
+  },
+
+  "Accessibility": {
+    "menu": "Main menu",
+    "backToTop": "Back to top",
+    "clientsCarousel": "Our clients’ logos",
+    "clientLogo": "Client logo {number}",
+    "previousSlide": "Previous logo",
+    "nextSlide": "Next logo",
+    "aboutImage": "Digital solutions for businesses",
+    "officeImage": "The Ebdaa work environment",
+    "contactImage": "Contact the Ebdaa team"
   }
 }

@@ -9,15 +9,14 @@ export default function Navbar() {
     <>
       <NavbarScroll />
 
-      <div className="px-12 inset-x-0 box-border flex fixed w-full navbar flex-col z-50 max-md:bg-background/80 max-md:border-b max-md:border-border max-md:py-1">
+      <nav aria-label="Ebdaa" className="px-12 inset-x-0 box-border flex fixed w-full navbar flex-col z-50 max-md:bg-background/80 max-md:border-b max-md:border-border max-md:py-1">
         <div className="flex flex-row justify-between items-center">
           <Link href="#home" className="logo h-20">
             <Image
-              priority
               src="/logo.svg"
-              alt="logo"
-              height={50}
-              width={100}
+              alt="Ebdaa | إبداع"
+              height={591}
+              width={709}
               className="h-full w-auto"
             />
           </Link>
@@ -31,10 +30,10 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className="md:hidden mobile-navbar flex-col gap-5 items-center pb-4">
+        <div id="mobile-navigation" className="md:hidden mobile-navbar flex-col gap-5 items-center pb-4">
           <NavLinks />
         </div>
-      </div>
+      </nav>
     </>
   );
 }

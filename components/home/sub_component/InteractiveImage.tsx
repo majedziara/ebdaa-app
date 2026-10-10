@@ -1,14 +1,13 @@
 "use client";
 
 import Image, { ImageProps } from "next/image";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { m, useMotionValue, useSpring } from "motion/react";
 import { useState } from "react";
 
 type InteractiveImageProps = {
   className?: string;
   overlay?: boolean;
   scale?: number;
-  blur?: number;
   perspective?: number;
 } & ImageProps;
 
@@ -17,6 +16,7 @@ export default function InteractiveImage({
   overlay = true,
   scale = 1.03,
   perspective = 1000,
+  alt,
   ...props
 }: InteractiveImageProps) {
   const [hovered, setHovered] = useState<boolean>(false);
@@ -62,7 +62,7 @@ export default function InteractiveImage({
       }}
     >
       {/* 🖼️ Image */}
-      <motion.div
+      <m.div
         style={{
           rotateX,
           rotateY,
@@ -78,8 +78,8 @@ export default function InteractiveImage({
         }}
         className="w-full h-full"
       >
-        <Image {...props} className="object-cover w-full h-full" />
-      </motion.div>
+        <Image {...props} alt={alt} className="object-cover w-full h-full" />
+      </m.div>
 
       {/* 🌑 Subtle overlay */}
       {overlay && (

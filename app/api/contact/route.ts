@@ -35,7 +35,7 @@ export async function POST(req: Request) {
     }
 
     return Response.json({ message: t("success") });
-  } catch (error) {
+  } catch {
     return Response.json({ message: t("error") }, { status: 500 });
   }
 }

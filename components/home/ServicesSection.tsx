@@ -9,9 +9,7 @@ export default function ServicesSection() {
       id="services"
       className="flex flex-col gap-6 py-12 px-4 md:py-12 md:px-24 w-full items-center justify-center relative text-center"
     >
-      <div className="text-3xl text-secondary opacity-20 blur-[2px] top-12 absolute">
-        {t("services")}
-      </div>
+      <div aria-hidden="true" data-decoration={t("services")} className="text-decoration text-3xl text-secondary opacity-20 blur-[2px] top-12 absolute" />
       <Reveal delay={0.5}>
         <h2 className="text-primary font-semibold">{t("services")}</h2>
       </Reveal>
@@ -19,7 +17,7 @@ export default function ServicesSection() {
         <h3 className="text-2xl font-extrabold">{t("servicesTitle")}</h3>
       </Reveal>
       <Reveal delay={0.7}>
-        <h4 className="text-md text-secondary">{t("servicesDescription")}</h4>
+        <p className="text-md text-secondary">{t("servicesDescription")}</p>
       </Reveal>
       <ServicesFeatures />
     </div>

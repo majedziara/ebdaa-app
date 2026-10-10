@@ -159,5 +159,17 @@
     "loading": "جاري الاشتراك...",
 
     "copyright": "© 2003–{year} إبداع. جميع الحقوق محفوظة."
+  },
+
+  "Accessibility": {
+    "menu": "القائمة الرئيسية",
+    "backToTop": "العودة إلى أعلى الصفحة",
+    "clientsCarousel": "شعارات عملائنا",
+    "clientLogo": "شعار العميل {number}",
+    "previousSlide": "الشعار السابق",
+    "nextSlide": "الشعار التالي",
+    "aboutImage": "حلول رقمية للأعمال",
+    "officeImage": "بيئة العمل في إبداع",
+    "contactImage": "تواصل مع فريق إبداع"
   }
 }

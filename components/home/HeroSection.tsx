@@ -136,21 +136,21 @@ overflow-hidden
       </div>
       <div className="grid grid-cols-2 max-md:grid-cols-1 gap-6  w-full h-full pt-12 md:px-12 px-4 max-md:pt-28 items-center justify-between">
         <div className="content-col flex flex-col gap-6">
-          <Reveal delay={0.5}>
-            <h2
+          <Reveal delay={0.5} eager>
+            <h1
               className={`font-extrabold ${dir === "rtl" ? "text-5xl/relaxed max-lg:text-4xl/relaxed" : "text-5xl max-lg:text-4xl"}`}
             >
               {t("title1")}
               <br /> <span className="text-primary">{t("title2")}</span>
-            </h2>
+            </h1>
           </Reveal>
-          <Reveal delay={0.7}>
-            <h3 className="text-2xl/normal max-lg:text-xl">
+          <Reveal delay={0.7} eager>
+            <p style={{ fontFamily: "var(--font-zain)" }} className="text-2xl/normal max-lg:text-xl">
               {t("description")}
-            </h3>
+            </p>
           </Reveal>
-          <Reveal delay={1}>
-            <h4>
+          <Reveal delay={1} eager>
+            <div>
               <Link
                 className="px-6 py-4 flex w-fit rounded-xl bg-primary relative group overflow-hidden text-white"
                 href={"#contact"}
@@ -171,7 +171,7 @@ overflow-hidden
                   )}
                 </span>
               </Link>
-            </h4>
+            </div>
           </Reveal>
         </div>
         <Reveal delay={0.6} direction="right">
@@ -189,12 +189,14 @@ to-primary
  bottom-1/6"
             />
             <Image
-              width={1000}
-              height={600}
+              width={532}
+              height={636}
               quality={75}
               src={"/assets/images/hero/hero.webp"}
-              alt="hero-ebdaa"
+              alt={locale === "ar" ? "إبداع للدعاية والإعلان والحلول الرقمية" : "Ebdaa advertising and digital solutions"}
               loading="eager"
+              fetchPriority="high"
+              sizes="(max-width: 768px) 241px, 322px"
               className={`w-auto object-cover absolute h-96 max-md:h-72 ${dir === "ltr" ? "-bottom-20 max-sm:-bottom-12 lg:-bottom-24" : "-bottom-20 max-md:-bottom-8"}`}
             />
           </div>

@@ -19,10 +19,14 @@ export default function LanguageButton() {
   ];
 
   return (
-    <div className="fixed bottom-0 translate-y-1/2 right-28 focus-within:translate-y-0 hover:translate-y-0 duration-500 w-fit rounded-t-4xl py-3 px-2 bg-[#f1f1f1] text-black flex flex-col gap-4 z-30">
+    <nav aria-label={locale === "ar" ? "اللغة" : "Language"} className="fixed bottom-0 translate-y-1/2 right-28 focus-within:translate-y-0 hover:translate-y-0 duration-500 w-fit rounded-t-4xl py-3 px-2 bg-[#f1f1f1] text-black flex flex-col gap-4 z-30">
       {languages.map((lang, index) => (
         <Link
-          href={lang.locale}
+          href={`/${lang.locale}`}
+          hrefLang={lang.locale}
+          lang={lang.locale}
+          aria-label={lang.text}
+          aria-current={locale === lang.locale ? "page" : undefined}
           // locale={lang.locale}
           key={index}
           onClick={(e) => {
@@ -31,15 +35,16 @@ export default function LanguageButton() {
           className={`flex gap-2 px-3 py-2 rounded-lg duration-500 ${locale !== lang.locale ? "cursor-pointer hover:bg-white" : "cursor-auto"}`}
         >
           <Image
-            width={512}
-            height={512}
+            width={32}
+            height={32}
             src={`/assets/images/flags/${lang.icon}`}
-            alt={lang.text}
+            alt=""
+            sizes="32px"
             className="w-8"
           />
           <span>{lang.locale}</span>
         </Link>
       ))}
-    </div>
+    </nav>
   );
 }

@@ -1,5 +1,3 @@
-"use client";
-
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Reveal from "../motion/Reveal";
@@ -8,6 +6,7 @@ import GradientCircle from "./sub_component/GradientCircle";
 
 export default function ContactSection() {
   const t = useTranslations("contactSection");
+  const a = useTranslations("Accessibility");
 
   return (
     <section
@@ -17,9 +16,7 @@ export default function ContactSection() {
         gap-12 py-12 px-4 md:py-12 md:px-24 w-full relative
       "
     >
-      <div className="text-3xl text-secondary opacity-20 blur-[2px] top-12 absolute">
-        {t("contact")}
-      </div>
+      <div aria-hidden="true" data-decoration={t("contact")} className="text-decoration text-3xl text-secondary opacity-20 blur-[2px] top-12 absolute" />
       {/* 🧠 Title */}
       <Reveal>
         <h2 className="text-primary font-semibold">{t("contact")}</h2>
@@ -37,7 +34,8 @@ export default function ContactSection() {
           <div className="overflow-hidden rounded-xl relative">
             <Image
               src="/assets/images/contact/contact.webp"
-              alt="contact us"
+              alt={a("contactImage")}
+              sizes="(max-width: 768px) 100vw, 50vw"
               width={1000}
               height={700}
               className="
@@ -45,7 +43,7 @@ export default function ContactSection() {
                 transition-transform duration-500
                 hover:scale-[1.02]
               "
-              loading="eager"
+              loading="lazy"
             />
           </div>
         </Reveal>
@@ -57,9 +55,9 @@ export default function ContactSection() {
           </Reveal>
 
           <Reveal delay={0.3}>
-            <h4 className="text-md font-medium text-foreground/70 leading-relaxed">
+            <p className="text-md font-medium text-foreground/70 leading-relaxed">
               {t("contactDescription")}
-            </h4>
+            </p>
           </Reveal>
 
           {/* 🧾 Form (focus element) */}

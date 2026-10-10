@@ -2,37 +2,35 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod/mini";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-type FormData = {
-  email: string;
-};
-
 export default function SubscribeForm() {
   const t = useTranslations("footer");
 
   const schema = z.object({
-    email: z.string().email(t("emailRequired")),
+    email: z.email(t("emailRequired")),
   });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<FormData>({
-    resolver: zodResolver(schema),
-  });
+  const [emailError, setEmailError] = useState<string>();
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (isLoading) return;
+    const form = event.currentTarget;
+    const parsed = schema.safeParse(Object.fromEntries(new FormData(form)));
+    if (!parsed.success) {
+      setEmailError(parsed.error.issues[0]?.message);
+      (form.elements.namedItem("email") as HTMLElement | null)?.focus();
+      return;
+    }
+    setEmailError(undefined);
+    const data = parsed.data;
     setIsLoading(true);
 
     try {
@@ -52,7 +50,7 @@ export default function SubscribeForm() {
       }
 
       toast.success(result.message);
-      reset();
+      form.reset();
     } catch {
       toast.error(t("error"));
     } finally {
@@ -62,11 +60,18 @@ export default function SubscribeForm() {
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      noValidate
+      aria-busy={isLoading}
+      onSubmit={onSubmit}
       className="flex flex-col lg:flex-row gap-3 w-full"
     >
       <div className="flex-1">
+        <label htmlFor="newsletter-email" className="sr-only">{t("emailPlaceholder")}</label>
         <Input
+          id="newsletter-email"
+          autoComplete="email"
+          aria-invalid={!!emailError}
+          aria-describedby={emailError ? "newsletter-email-error" : undefined}
           type="email"
           placeholder={t("emailPlaceholder")}
           className="
@@ -79,11 +84,11 @@ export default function SubscribeForm() {
             focus:ring-primary/20
             p-4
           "
-          {...register("email")}
+          name="email"
         />
 
-        {errors.email && (
-          <p className="text-red-400 text-sm mt-1">{errors.email.message}</p>
+        {emailError && (
+          <p id="newsletter-email-error" role="alert" className="text-red-400 text-sm mt-1">{emailError}</p>
         )}
       </div>
 

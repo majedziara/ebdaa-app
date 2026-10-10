@@ -1,5 +1,3 @@
-"use client";
-
 import { useTranslations } from "next-intl";
 import InteractiveImage from "./sub_component/InteractiveImage";
 import Reveal from "../motion/Reveal";
@@ -7,6 +5,7 @@ import { aboutSectionData } from "@/constants/about";
 
 export default function AboutSection() {
   const t = useTranslations("aboutSection");
+  const a = useTranslations("Accessibility");
 
   return (
     <section
@@ -19,13 +18,13 @@ export default function AboutSection() {
         <Reveal delay={0.5} direction="up">
           <InteractiveImage
             src="/assets/images/about/about-2.webp"
-            alt="about-2"
+            alt={a("aboutImage")}
+            sizes="(max-width: 768px) 100vw, 50vw"
             width={1000}
             height={600}
-            blur={4}
             scale={1.03}
             perspective={1000}
-            loading="eager"
+            loading="lazy"
             overlay={false}
             className="w-full h-full aspect-video"
           />
@@ -37,17 +36,15 @@ export default function AboutSection() {
           direction="down"
           className="flex flex-col items-start text-start gap-5"
         >
-          <div className="text-2xl text-secondary opacity-20 blur-[1px] translate-y-2 absolute">
-            {t("information")}
-          </div>
+          <div aria-hidden="true" data-decoration={t("information")} className="text-decoration text-2xl text-secondary opacity-20 blur-[1px] translate-y-2 absolute" />
 
           <h2 className="text-primary font-semibold">{t("about")}</h2>
 
           <h3 className="text-3xl font-bold">{t(aboutSectionData[0].title)}</h3>
 
-          <h4 className="text-md font-medium leading-relaxed">
+          <p className="text-md font-medium leading-relaxed">
             {t(aboutSectionData[0].description)}
-          </h4>
+          </p>
         </Reveal>
       </div>
 
@@ -62,9 +59,9 @@ export default function AboutSection() {
             >
               <div className="flex flex-col gap-4 text-start">
                 <h3 className="text-2xl font-bold">{t(item.title)}</h3>
-                <h4 className="text-md font-medium leading-relaxed">
+                <p className="text-md font-medium leading-relaxed">
                   {t(item.description)}
-                </h4>
+                </p>
               </div>
             </Reveal>
           ) : null,
@@ -74,10 +71,10 @@ export default function AboutSection() {
         <Reveal delay={0.6} direction="up">
           <InteractiveImage
             src="/assets/images/about/about-1.webp"
-            alt="about-2"
+            alt={a("officeImage")}
+            sizes="(max-width: 768px) 100vw, 33vw"
             width={1000}
             height={600}
-            blur={4}
             scale={1.03}
             perspective={1000}
             overlay={false}

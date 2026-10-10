@@ -8,15 +8,16 @@ import {
 } from "@/components/ui/carousel";
 import { getDirection } from "@/i18n/getDirection";
 import Autoplay from "embla-carousel-autoplay";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
-import { useRef } from "react";
+import { useState } from "react";
 
 export default function ClientsCarousel() {
   const locale = useLocale();
   const dir = getDirection(locale);
+  const t = useTranslations("Accessibility");
 
-  const plugin = useRef(
+  const [plugin] = useState(() =>
     Autoplay({
       delay: 2000, // كل ثانيتين
       stopOnInteraction: false, // يكمل بعد السحب
@@ -26,7 +27,8 @@ export default function ClientsCarousel() {
 
   return (
     <Carousel
-      plugins={[plugin.current]}
+      plugins={[plugin]}
+      aria-label={t("clientsCarousel")}
       dir={dir}
       opts={{
         direction: dir,
@@ -45,7 +47,8 @@ export default function ClientsCarousel() {
                   width={500}
                   height={500}
                   loading="lazy"
-                  alt={`client ${index + 1}`}
+                  sizes="(max-width: 1024px) 33vw, 20vw"
+                  alt={t("clientLogo", { number: index + 1 })}
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -53,8 +56,8 @@ export default function ClientsCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-2 md:-left-12" />
-      <CarouselNext className="right-2 md:-right-12" />
+      <CarouselPrevious aria-label={t("previousSlide")} className="left-2 md:-left-12" />
+      <CarouselNext aria-label={t("nextSlide")} className="right-2 md:-right-12" />
     </Carousel>
   );
 }

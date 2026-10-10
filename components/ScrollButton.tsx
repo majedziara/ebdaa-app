@@ -2,16 +2,19 @@
 
 import { useEffect, useState } from "react";
 import { ArrowBigUp } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function ScrollButton() {
   const [show, setShow] = useState(false);
+  const t = useTranslations("Accessibility");
 
   useEffect(() => {
     const handleScroll = () => {
       setShow(window.scrollY > 300);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -26,7 +29,11 @@ export default function ScrollButton() {
   };
 
   return (
-    <div
+    <button
+      type="button"
+      aria-label={t("backToTop")}
+      tabIndex={show ? 0 : -1}
+      aria-hidden={!show}
       onClick={scrollToTop}
       className={`
         fixed
@@ -48,6 +55,6 @@ export default function ScrollButton() {
       `}
     >
       <ArrowBigUp color="white" height={40} size={24} />
-    </div>
+    </button>
   );
 }
